@@ -23,14 +23,23 @@ export function AuthButtons({ isLoggedIn, userName }: AuthButtonsProps) {
     }
 
     return (
-        <form
-            action={async () => {
-                "use server";
-                // เติม: ชื่อ provider ของ Google (ตัวพิมพ์เล็ก) 
-                await signIn("google", { redirectTo: "/" });
-            }}
-        >
-            <button type="submit">Login with Google</button>
-        </form>
+        <div>
+            <form
+                action={async () => {
+                    "use server";
+                    await signIn("google", { redirectTo: "/" });
+                }}
+            >
+                <button type="submit">Login with Google</button>
+            </form>
+            <form
+                action={async () => {
+                    "use server";
+                    await signIn("github", { redirectTo: "/" });
+                }}
+            >
+                <button type="submit">Login with GitHub</button>
+            </form>
+        </div>
     );
 }

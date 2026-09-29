@@ -387,3 +387,6 @@ button:focus-visible {
     transition: none !important;
   }
 }
+header div:has(form button[type="submit"]) {
+  gap: 0.75rem;
+}
